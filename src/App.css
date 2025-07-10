@@ -1,38 +1,242 @@
-.App {
+/* General resets */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.app {
+  max-width: 960px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Heading */
+.main-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+/* Calendar */
+.calendar-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input[type="date"] {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Search bar */
+.search-bar {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 80%;
+  max-width: 400px;
+}
+
+/* Form for adding meal */
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.form input[type="text"],
+.form input[type="number"] {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+.form button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #10b981;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.form button:hover {
+  background-color: #059669;
+}
+
+/* Total calories section */
+.summary {
+  text-align: center;
+  margin: 10px 0 20px;
+}
+
+.summary h2 {
+  font-size: 1.5rem;
+  color: #374151;
+}
+
+/* Meal list */
+.meal-list {
+  margin-top: 10px;
+}
+
+.meal-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background-color: #ffffff;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.meal-item button {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* No meals message */
+.no-meals {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}
+
+/* Goal section */
+.goal-section {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.goal-section input {
+  margin-left: 10px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100px;
+}
+
+/* Progress bar */
+.progress-bar-container {
+  margin: 10px auto 20px;
+  max-width: 400px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.progress-label {
+  margin-bottom: 6px;
+  font-weight: 600;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.progress-bar {
+  background-color: #e5e7eb;
+  border-radius: 20px;
+  height: 20px;
+  width: 100%;
+  overflow: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.progress-fill {
+  background-color: #10b981;
+  height: 100%;
+  transition: width 0.3s ease-in-out;
+}
+
+.progress-fill.over-limit {
+  background-color: #ef4444;
+}
+
+.warning-text {
+  color: #ef4444;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* Meal type toggle buttons */
+.meal-type-buttons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.meal-type-buttons button {
+  padding: 10px 16px;
+  border: 2px solid #ccc;
+  background-color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease-in-out;
+}
+
+.meal-type-buttons button.active {
+  background-color: #10b981;
   color: white;
+  border-color: #10b981;
 }
 
-.App-link {
-  color: #61dafb;
+.meal-type-buttons button:hover {
+  background-color: #d1fae5;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Suggestion section */
+.suggestion-section {
+  margin-top: 30px;
+  padding: 20px;
+  background: #f0fdf4;
+  border: 1px solid #d1fae5;
+  border-radius: 10px;
+}
+
+.suggestion-section h3 {
+  text-align: center;
+  color: #065f46;
+  margin-bottom: 10px;
+}
+
+.suggestion-section ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.suggestion-section li {
+  margin-bottom: 6px;
+  color: #047857;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+  .form {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .form input[type="text"],
+  .form input[type="number"] {
+    width: 90%;
+  }
+
+  .search-bar input {
+    width: 90%;
   }
 }
